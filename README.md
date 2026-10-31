@@ -1,6 +1,6 @@
-# Portfolio - Mohamed El-Ghazoui
+# Portfolio - Mohamed EL-GHAZOUI
 
-Portfolio personnel moderne et interactif de **Mohamed El-Ghazoui**, étudiant
+Portfolio personnel moderne et interactif de **Mohamed EL-GHAZOUI**, étudiant
 ingénieur en Informatique et Réseaux à l'EMSI Rabat.
 
 Le site présente mon profil, mon parcours académique, mes compétences
@@ -131,6 +131,6 @@ styles.css             Direction visuelle et animations du portfolio
 
 ## Auteur
 
-**Mohamed El-Ghazoui**  
+**Mohamed EL-GHAZOUI**  
 Etudiant ingenieur en Informatique et Reseaux  
 EMSI Rabat, Maroc

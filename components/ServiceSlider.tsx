@@ -30,7 +30,8 @@ const ServiceSlider = () => {
       pagination={{ clickable: true }}
       modules={[FreeMode, Pagination]}
       freeMode
-      className="h-72 sm:h-96"
+      autoHeight
+      className="pb-10 sm:pb-0 sm:h-96"
     >
       {expertises.map((item, i) => {
         const Icon = icons[i % icons.length];

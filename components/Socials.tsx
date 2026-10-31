@@ -18,7 +18,7 @@ export const socialData: { name: string; link: string; Icon: IconType }[] = [
 
 const Socials = () => {
   return (
-    <div className="flex items-center gap-x-5 text-lg">
+    <div className="flex items-center gap-x-3 sm:gap-x-5 text-base sm:text-lg shrink-0">
       {socialData.map((social, i) => (
         <Link
           key={i}

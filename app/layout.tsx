@@ -15,11 +15,11 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
-  title: "Mohamed El-Ghazoui | Développeur Full-Stack",
+  title: "Mohamed EL-GHAZOUI | Développeur Full-Stack",
   description:
-    "Portfolio de Mohamed El-Ghazoui, développeur Full-Stack et étudiant ingénieur à l'EMSI Rabat. Recherche un stage PFE de 6 mois.",
+    "Portfolio de Mohamed EL-GHAZOUI, développeur Full-Stack et étudiant ingénieur à l'EMSI Rabat. Recherche un stage PFE de 6 mois.",
   keywords: ["full-stack", "java", "spring boot", "angular", "nestjs", "next.js", "portfolio", "PFE", "EMSI"],
-  authors: [{ name: "Mohamed El-Ghazoui" }],
+  authors: [{ name: "Mohamed EL-GHAZOUI" }],
   other: { "theme-color": "#f13024" },
 };
 
@@ -35,8 +35,10 @@ export default function RootLayout({
       >
         <TopLeftImg />
         <Nav />
-        <Header />
-        {children}
+        <div className="relative h-full overflow-y-auto overflow-x-hidden pb-20 xl:pb-0 xl:overflow-hidden">
+          <Header />
+          {children}
+        </div>
         <aside>
           <Toaster
             position="top-center"

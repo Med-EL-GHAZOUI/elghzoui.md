@@ -21,7 +21,8 @@ const WorkSlider = () => {
       spaceBetween={10}
       pagination={{ clickable: true }}
       modules={[Pagination]}
-      className="h-[28rem] sm:h-120"
+      autoHeight
+      className="pb-10 sm:pb-0 sm:h-120"
     >
       {chunk(projects, 4).map((slide, i) => (
         <SwiperSlide key={i}>

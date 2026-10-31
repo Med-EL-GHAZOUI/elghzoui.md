@@ -5,7 +5,7 @@ const Avatar = () => {
     <div className="hidden xl:flex xl:max-w-none pointer-events-none select-none h-full items-end justify-center">
       <Image
         src="/assets/mohamed-el-ghazoui.jpeg"
-        alt="Portrait de Mohamed El-Ghazoui"
+        alt="Portrait de Mohamed EL-GHAZOUI"
         width={1200}
         height={1600}
         priority

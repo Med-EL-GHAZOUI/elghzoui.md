@@ -1,5 +1,5 @@
 export const profile = {
-  name: "Mohamed El-Ghazoui",
+  name: "Mohamed EL-GHAZOUI",
   role: "Développeur Full-Stack",
   email: "elghazoui.md@gmail.com",
   phone: "+212 6 82 44 49 21",
