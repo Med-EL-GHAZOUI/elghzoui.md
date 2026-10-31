@@ -9,7 +9,7 @@ import { fadeIn } from "@/variants";
 
 const Certifications = () => {
   return (
-    <div className="min-h-full xl:h-full bg-primary/30 py-28 xl:py-36 flex items-center">
+    <div className="min-h-full xl:h-full bg-primary/30 py-8 xl:py-36 flex items-center">
       <Circles />
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-x-8">

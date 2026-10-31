@@ -90,7 +90,7 @@ const ContactForm = () => {
 const Contact = () => {
   return (
     <div className="min-h-full xl:h-full bg-primary/30 xl:overflow-y-auto">
-      <div className="container mx-auto py-28 xl:py-32 text-center xl:text-left flex items-center justify-center min-h-full">
+      <div className="container mx-auto py-8 xl:py-32 text-center xl:text-left flex items-center justify-center min-h-full">
         <div className="flex flex-col w-full max-w-175">
           <motion.h2
             variants={fadeIn("up", 0.2)}

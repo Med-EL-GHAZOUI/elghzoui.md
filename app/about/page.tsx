@@ -43,7 +43,7 @@ const About = () => {
   const [index, setIndex] = useState(0);
 
   return (
-    <div className="min-h-full xl:h-full bg-primary/30 py-28 xl:py-32 text-center xl:text-left">
+    <div className="min-h-full xl:h-full bg-primary/30 py-8 xl:py-32 text-center xl:text-left">
       <Circles />
 
       <motion.div

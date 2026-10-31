@@ -35,7 +35,7 @@ export default function RootLayout({
       >
         <TopLeftImg />
         <Nav />
-        <div className="relative h-full overflow-y-auto overflow-x-hidden pb-20 xl:pb-0 xl:overflow-hidden">
+        <div className="relative h-full overflow-y-auto overflow-x-hidden pb-24 xl:pb-0 xl:overflow-hidden">
           <Header />
           {children}
         </div>
