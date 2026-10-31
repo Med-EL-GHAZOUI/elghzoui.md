@@ -28,23 +28,53 @@ type Project = {
 const themes: Theme[] = ["cyber", "midnight", "light"];
 
 const skills: Skill[] = [
-  { icon: "</>", title: "Frontend", values: ["JavaScript", "TypeScript", "Bootstrap", "Tailwind CSS", "React.js", "Angular.js"] },
-  { icon: "{ }", title: "Backend", values: ["PHP", "Laravel", "Node.js", "Express.js", "Django", "Nest.js", "ASP.NET Core", "Java EE"] },
-  { icon: "DB", title: "Bases de données", values: ["MySQL", "PL/SQL", "SQL Server", "Oracle", "MongoDB"] },
-  { icon: "OS", title: "Systèmes", values: ["Linux", "RedHat"] },
-  { icon: "++", title: "Programmation avancée", values: ["C++", "Java", "Python"] }
+  { icon: "{ }", title: "Back-end", values: ["Java", "Spring Boot", "JPA/Hibernate", "Node.js", "NestJS", "Django", "Flask", "PHP", "Laravel", "C#", ".NET 9", "ASP.NET Core", "Blazor", "API REST", "JWT", "TypeORM"] },
+  { icon: "</>", title: "Front-end", values: ["Angular", "React", "Next.js", "TypeScript", "JavaScript", "HTML", "CSS", "Bootstrap", "Tailwind CSS"] },
+  { icon: "DB", title: "Bases de données", values: ["SQL", "PL/SQL", "PostgreSQL", "MySQL", "MariaDB", "SQL Server", "Oracle", "MongoDB", "SQLite"] },
+  { icon: "PY", title: "Data / Python", values: ["Python", "Pandas", "NumPy", "Modèles de prédiction", "OCR"] },
+  { icon: "++", title: "Outils & Méthodes", values: ["Git", "Maven", "Docker", "Linux", "Postman", "IntelliJ", "WebStorm", "Taiga", "UML", "Agile / Scrum"] }
 ];
 
 const projects: Project[] = [
   {
     id: "gpec",
-    title: "Application Web pour la GPEC",
-    category: "backend web",
+    title: "Application GPEC - COPAG",
+    category: "frontend backend web",
     techLabel: "GPEC",
-    description: "Solution de gestion prévisionnelle des emplois et des compétences pour la Coopérative Agricole COPAG.",
-    detail: "Application web de Gestion Prévisionnelle des Emplois et des Compétences réalisée pour la Coopérative Agricole COPAG.",
-    tags: ["Application Web", "GPEC", "COPAG"],
+    description: "Gestion prévisionnelle des emplois et des compétences pour la Coopérative Agricole COPAG (Angular / NestJS).",
+    detail: "Stage 07/2025 - 08/2025 : analyse des besoins et conception UML, application Front-end Angular / Back-end NestJS, authentification et autorisation JWT, API REST et persistance avec TypeORM.",
+    tags: ["Angular", "NestJS", "TypeORM", "JWT", "UML"],
     featured: true
+  },
+  {
+    id: "blazor-ocr",
+    title: "Blazor & OCR - Extraction des CNI",
+    category: "backend web",
+    techLabel: ".NET 9",
+    techClass: "web",
+    description: "Application Blazor Server avec OCR pour extraire automatiquement les données des cartes nationales d'identité.",
+    detail: "Stage chez Smart Data Innovation - DevlopStack (07/2026 - 08/2026) : application Blazor Server (C#, .NET 9), intégration d'un système OCR et conception de la base MariaDB.",
+    tags: ["C#", ".NET 9", "Blazor Server", "MariaDB", "OCR"]
+  },
+  {
+    id: "ventes",
+    title: "PFA - Prévision des ventes",
+    category: "frontend backend web",
+    techLabel: "NEXT",
+    techClass: "next",
+    description: "Plateforme web intelligente intégrant des modèles de prédiction des ventes.",
+    detail: "Projet 06/2026 : plateforme Next.js / Flask, API REST sécurisées, base PostgreSQL, traitement des données avec Pandas et NumPy, authentification JWT et hachage bcrypt.",
+    tags: ["Next.js", "Flask", "PostgreSQL", "Pandas", "NumPy", "JWT", "bcrypt"]
+  },
+  {
+    id: "conferences",
+    title: "PFA - Gestion des conférences",
+    category: "backend web",
+    techLabel: "DJANGO",
+    techClass: "django",
+    description: "Application web de gestion des conférences, des intervenants et des inscriptions.",
+    detail: "Projet 06/2025 : conception et développement d'une application Django, de l'interface utilisateur et de la base de données SQLite.",
+    tags: ["Django", "SQLite", "HTML", "CSS", "JavaScript"]
   },
   {
     id: "employee",
@@ -67,16 +97,6 @@ const projects: Project[] = [
     tags: ["Laravel", "PHP"]
   },
   {
-    id: "courses",
-    title: "Plateforme de cours en ligne",
-    category: "frontend web",
-    techLabel: "WEB",
-    techClass: "web",
-    description: "Plateforme pédagogique interactive accessible via navigateur.",
-    detail: "Plateforme de cours en ligne construite avec les technologies web fondamentales pour une navigation interactive.",
-    tags: ["HTML", "CSS", "JavaScript"]
-  },
-  {
     id: "commerce",
     title: "Application E-Commerce",
     category: "frontend web",
@@ -87,16 +107,6 @@ const projects: Project[] = [
     tags: ["Next.js", "Web"]
   },
   {
-    id: "hotel",
-    title: "Hotel Booking",
-    category: "frontend web",
-    techLabel: "REACT",
-    techClass: "react",
-    description: "Application de réservation hôtelière moderne et réactive.",
-    detail: "Application de réservation d'hôtels réalisée avec React.js pour explorer les parcours de booking.",
-    tags: ["React.js", "Réservation"]
-  },
-  {
     id: "rh",
     title: "Gestion des ressources humaines",
     category: "java",
@@ -105,31 +115,64 @@ const projects: Project[] = [
     description: "Application de gestion RH développée en Java.",
     detail: "Application de gestion des ressources humaines développée en Java.",
     tags: ["Java", "Gestion RH"]
+  }
+];
+
+const experiences = [
+  {
+    period: "07/2026 - 08/2026",
+    title: "Stagiaire Développeur .NET - Blazor & OCR",
+    company: "Smart Data Innovation - DevlopStack | Mohammadia",
+    stack: ["C#", ".NET 9", "Blazor Server", "MariaDB", "OCR", "Git"],
+    points: [
+      "Développement d'une application web Blazor Server (C#, .NET 9) dédiée à l'extraction des données des CNI.",
+      "Intégration d'un système OCR pour l'extraction automatique des données des cartes nationales d'identité.",
+      "Conception et gestion de la base de données MariaDB pour la persistance des informations."
+    ]
   },
   {
-    id: "conferences",
-    title: "Gestion des conférences",
-    category: "backend web",
-    techLabel: "DJANGO",
-    techClass: "django",
-    description: "Système web d'organisation et de suivi des conférences.",
-    detail: "Système de gestion de conférences développé avec Django pour organiser les informations d'événements.",
-    tags: ["Django", "Python"]
+    period: "07/2025 - 08/2025",
+    title: "Stagiaire Développeur Full-Stack - Application GPEC",
+    company: "Coopérative Agricole COPAG | Taroudant",
+    stack: ["Angular", "NestJS", "TypeORM", "API REST", "JWT", "UML", "Git"],
+    points: [
+      "Développement d'une application web de Gestion Prévisionnelle des Emplois et des Compétences (GPEC).",
+      "Analyse des besoins et conception de l'architecture de l'application (UML).",
+      "Architecture Front-end (Angular) / Back-end (NestJS).",
+      "Authentification et autorisation sécurisées avec JWT.",
+      "Développement des API REST et persistance des données avec TypeORM."
+    ]
   }
 ];
 
 const formations = [
-  { period: "2024 - 2027", title: "Ingénierie Informatique et Réseaux", institution: "EMSI Rabat - Rabat" },
-  { period: "2022 - 2024", title: "Années préparatoires en ingénierie", institution: "Informatique, industrielle et automatisme - EMSI Rabat" },
-  { period: "2021 - 2022", title: "Baccalauréat en Sciences Physiques et Chimiques", institution: "Lycée Missour Mixte - Missour" }
+  { period: "2024 - 2027 (prévu)", title: "Ingénieur d'État en Informatique et Réseaux", institution: "EMSI (École Marocaine des Sciences de l'Ingénieur) - Rabat, Maroc | Option Développement Digital et Systèmes d'Information - 5ème année" },
+  { period: "2022 - 2024", title: "Classes Préparatoires Intégrées (Sciences de l'Ingénieur)", institution: "EMSI (École Marocaine des Sciences de l'Ingénieur) - Rabat, Maroc" }
 ];
 
 const certifications = [
-  { date: "16 AVRIL 2025", title: "Software Engineering: Software Design and Project Management", issuer: "The Hong Kong University of Science and Technology" },
-  { date: "16 AVRIL 2025", title: "Python for Data Science, AI & Development", issuer: "IBM" },
-  { date: "01 DÉCEMBRE 2024", title: "Interactivity with JavaScript", issuer: "University of Michigan" },
-  { date: "09 DÉCEMBRE 2024", title: "Introduction à la programmation orientée objet en C++", issuer: "École Polytechnique Fédérale de Lausanne" },
-  { date: "06 DÉCEMBRE 2024", title: "The Unix Workbench", issuer: "Johns Hopkins University" }
+  { date: "06/2026", title: "Oracle Certified Professional : Java SE 17 Developer", issuer: "Oracle", id: "" },
+  { date: "05/2026", title: "Affirmer son leadership dans une relation non hiérarchique", issuer: "CrossKnowledge", id: "0000647120" },
+  { date: "05/2026", title: "Comprendre l'esprit critique à l'ère digitale", issuer: "CrossKnowledge", id: "0000648104" },
+  { date: "05/2026", title: "Animer et contribuer à des réunions de qualité", issuer: "CrossKnowledge", id: "0000647638" },
+  { date: "05/2026", title: "Adapter sa communication au style de son interlocuteur", issuer: "CrossKnowledge", id: "0000646874" },
+  { date: "05/2026", title: "Communiquer efficacement par mail", issuer: "CrossKnowledge", id: "0000647884" },
+  { date: "04/2026", title: "Introduction to Big Data", issuer: "University of California, San Diego - Rady School of Management", id: "KF0Z5NGLXV1W" },
+  { date: "04/2026", title: "Agile Project Management", issuer: "Google", id: "DFZ8ZHY603OD" },
+  { date: "12/2025", title: "React Native", issuer: "Meta", id: "TEDUL280WLL2" },
+  { date: "12/2025", title: "Les bases de React", issuer: "Meta", id: "7H02R1X42DO1" },
+  { date: "04/2025", title: "Python for Data Science, AI & Development", issuer: "IBM", id: "DJOYNMN321XX" },
+  { date: "04/2025", title: "Génie logiciel : conception de logiciels et gestion de projets", issuer: "The Hong Kong University of Science and Technology", id: "T3K4105T91G5" },
+  { date: "03/2025", title: "La recherche documentaire", issuer: "École Polytechnique", id: "JIMPTE8A4PNS" },
+  { date: "12/2024", title: "The Unix Workbench", issuer: "The Johns Hopkins University", id: "XZS0V6GBTLPF" },
+  { date: "12/2024", title: "Introduction à la programmation orientée objet (en C++)", issuer: "EPFL", id: "GOXM8SX335Z3" },
+  { date: "12/2024", title: "Interactivity with JavaScript", issuer: "University of Michigan", id: "SA091BDPN2AS" }
+];
+
+const languages = [
+  { name: "Français", level: "Courant" },
+  { name: "Anglais", level: "Technique (intermédiaire)" },
+  { name: "Arabe", level: "Langue maternelle" }
 ];
 
 const sectionLinks = [
@@ -137,6 +180,7 @@ const sectionLinks = [
   { id: "about", label: "Profil" },
   { id: "skills", label: "Compétences" },
   { id: "projects", label: "Projets" },
+  { id: "experience", label: "Expérience" },
   { id: "education", label: "Formations" },
   { id: "certifications", label: "Certifications" },
   { id: "contact", label: "Contact" }
@@ -288,7 +332,7 @@ function Header({ theme, cycleTheme, setPaletteOpen }: { theme: Theme; cycleThem
         <span className="brand-mark">M</span><span>MED.DEV</span>
       </a>
       <nav className="nav" aria-label="Navigation principale">
-        {sectionLinks.slice(1).filter((link) => link.id !== "certifications").map((link) => (
+        {sectionLinks.slice(1).filter((link) => !["certifications", "experience"].includes(link.id)).map((link) => (
           <a key={link.id} href={`#${link.id}`}>{link.label}</a>
         ))}
       </nav>
@@ -347,6 +391,7 @@ export default function Portfolio() {
 
   const commandItems = [
     { action: "projects", title: "Voir les projets", key: "P" },
+    { action: "experience", title: "Voir les expériences", key: "E" },
     { action: "education", title: "Voir les formations", key: "F" },
     { action: "certifications", title: "Voir les certifications", key: "C" },
     { action: "contact", title: "Me contacter", key: "M" },
@@ -370,16 +415,17 @@ export default function Portfolio() {
     event.preventDefault();
     const command = terminalInput.trim().toLowerCase();
     const results: Record<string, string> = {
-      help: "Commandes : about, skills, projects, education, contact, clear",
-      about: "MOHAMED EL-GHAZOUI - Étudiant ingénieur en Informatique et Réseaux à l'EMSI Rabat.",
-      skills: "JavaScript / React.js / Laravel / Django / Java / Python / Bases de données / Linux",
+      help: "Commandes : about, skills, projects, experience, education, contact, clear",
+      about: "MOHAMED EL-GHAZOUI - Développeur Full-Stack, étudiant ingénieur en Informatique et Réseaux à l'EMSI (5ème année). Recherche un stage PFE de 6 mois.",
+      skills: "Java / Spring Boot / Angular / NestJS / Next.js / .NET 9 / Python / SQL / Docker / Git",
       projects: "Ouverture de la section projets...",
-      education: "Parcours EMSI Rabat : années préparatoires (2022-2024), cycle ingénieur (2024-2027).",
+      experience: "Stagiaire .NET Blazor & OCR (Smart Data Innovation, 07-08/2026) ; Stagiaire Full-Stack GPEC (COPAG, 07-08/2025).",
+      education: "EMSI Rabat : classes préparatoires intégrées (2022-2024), cycle ingénieur (2024-2027).",
       contact: "elghazoui.md@gmail.com | +212 6 82 44 49 21"
     };
     if (command === "clear") setTerminalLines([]);
     else setTerminalLines((lines) => [...lines, `visitor@med:~$ ${command}`, results[command] ?? `Commande inconnue : ${command}. Tapez help.`]);
-    if (["projects", "education", "contact"].includes(command)) document.getElementById(command)?.scrollIntoView({ behavior: "smooth" });
+    if (["projects", "experience", "education", "contact"].includes(command)) document.getElementById(command)?.scrollIntoView({ behavior: "smooth" });
     setTerminalInput("");
   }
 
@@ -407,13 +453,14 @@ export default function Portfolio() {
       <main id="main">
         <section id="home" className="hero section">
           <div className="hero-content reveal">
-            <div className="availability"><i /><span>Étudiant ingénieur à l&apos;EMSI Rabat</span></div>
-            <p className="eyebrow">INFORMATIQUE / RÉSEAUX / DÉVELOPPEMENT WEB</p>
+            <div className="availability"><i /><span>Recherche stage PFE 6 mois</span></div>
+            <p className="eyebrow">DÉVELOPPEUR FULL-STACK / JAVA / WEB</p>
             <h1 className="profile-name">MOHAMED<br /><span className="gradient-text">EL-GHAZOUI</span></h1>
-            <p className="hero-role">Étudiant ingénieur en Informatique et Réseaux</p>
+            <p className="hero-role">Développeur Full-Stack | Étudiant ingénieur en Informatique et Réseaux</p>
             <p className="hero-copy">
-              Passionné par les sciences et les technologies, je développe des solutions web et logicielles
-              en mobilisant mes compétences en informatique, réseaux et résolution de problèmes complexes.
+              Étudiant en 5ème année à l&apos;EMSI (option Développement Digital et Systèmes d&apos;Information),
+              certifié Oracle Java SE 17, je développe des applications full-stack avec Java / Spring Boot,
+              Angular, NestJS, Next.js et .NET. Deux stages réalisés, à la recherche d&apos;un stage PFE de 6 mois.
             </p>
             <div className="hero-actions">
               <a className="cta magnetic" href="#projects">Voir mes projets</a>
@@ -430,9 +477,9 @@ export default function Portfolio() {
             <div className="avatar-shell portrait-shell glass">
               <div className="scanline" />
               <Image className="profile-photo" src="/assets/mohamed-el-ghazoui.jpeg" alt="Portrait de Mohamed El-Ghazoui" fill priority sizes="(max-width: 720px) 90vw, 390px" />
-              <div className="identity"><strong>MOHAMED EL-GHAZOUI</strong><span>EMSI Rabat / Maroc</span></div>
+              <div className="identity"><strong>MOHAMED EL-GHAZOUI</strong><span>Développeur Full-Stack / Rabat</span></div>
             </div>
-            <div className="hud-card glass hud-top"><span>PARCOURS</span><strong>INGÉNIEUR</strong></div>
+            <div className="hud-card glass hud-top"><span>PARCOURS</span><strong>5ÈME ANNÉE</strong></div>
             <div className="hud-card glass hud-bottom"><span>PROMOTION</span><strong>2027</strong><div className="mini-wave" /></div>
           </div>
           <div className="scroll-hint"><span>DÉCOUVRIR LE PROFIL</span><i /></div>
@@ -441,24 +488,24 @@ export default function Portfolio() {
         <section id="about" className="section">
           <div className="section-heading reveal">
             <p className="eyebrow">01 / À PROPOS</p>
-            <h2>Un parcours d&apos;ingénieur tourné vers les technologies.</h2>
-            <p>Étudiant en deuxième année du cycle ingénieur à l&apos;École Marocaine des Sciences de l&apos;Ingénieur, EMSI Rabat, je consolide un profil polyvalent en informatique, réseaux et développement web.</p>
+            <h2>Un profil full-stack tourné vers le développement logiciel.</h2>
+            <p>Étudiant en 5ème année du cycle d&apos;ingénieur en Informatique et Réseaux à l&apos;EMSI, développeur full-stack passionné par les technologies web et le développement logiciel. Compétences en Java / Spring Boot (certifié Oracle Java SE 17), API REST, SQL et Git, en méthodes Agile / Scrum.</p>
           </div>
           <div className="profile-grid">
             <article className="profile-card glass reveal">
               <span className="label">PROFIL ACADÉMIQUE</span>
-              <h3>EMSI Rabat</h3><p>Ingénierie Informatique et Réseaux</p>
+              <h3>EMSI Rabat</h3><p>Ingénieur d&apos;État en Informatique et Réseaux</p>
               <div className="profile-lines">
-                <span><small>Niveau</small>2e année du cycle ingénieur</span>
+                <span><small>Niveau</small>5ème année - Développement Digital et SI</span>
                 <span><small>Parcours</small>2024 - 2027</span>
-                <span><small>Localisation</small>Rabat, Maroc</span>
+                <span><small>Localisation</small>Rabat, Maroc | Mobilité nationale</span>
               </div>
             </article>
             <article className="profile-card glass reveal">
               <span className="label">OBJECTIF</span>
-              <h3>Construire, apprendre, résoudre</h3>
-              <p>Mettre en pratique mes connaissances sur des projets informatiques concrets, utiles et techniquement exigeants.</p>
-              <div className="tags"><span>Réseaux</span><span>Web</span><span>Logiciel</span><span>Problem Solving</span></div>
+              <h3>Stage PFE de 6 mois en full-stack</h3>
+              <p>Rejoindre une équipe pour concevoir et développer des applications full-stack, en m&apos;appuyant sur mes deux stages et mes projets académiques.</p>
+              <div className="tags"><span>Full-Stack</span><span>Java</span><span>Agile / Scrum</span><span>PFE 6 mois</span></div>
             </article>
           </div>
         </section>
@@ -479,7 +526,7 @@ export default function Portfolio() {
 
         <section id="projects" className="section projects">
           <div className="section-heading reveal">
-            <p className="eyebrow">03 / PROJETS RÉALISÉS</p><h2>Applications et solutions développées.</h2>
+            <p className="eyebrow">03 / PROJETS</p><h2>Stages, projets académiques et réalisations.</h2>
           </div>
           <div className="project-tools reveal">
             <label className="search glass"><span aria-hidden="true">⌕</span><input type="search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Rechercher un projet..." /></label>
@@ -498,7 +545,7 @@ export default function Portfolio() {
                   <div className={`preview tech-preview ${project.techClass}`}>{project.techLabel}</div>
                 )}
                 <div className="project-content">
-                  {project.featured && <span className="label">PROJET PHARE / COPAG</span>}
+                  {project.featured && <span className="label">STAGE / COPAG</span>}
                   <h3>{project.title}</h3><p>{project.description}</p>
                   <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                   <div className="project-links"><button onClick={() => setActiveProject(project)}>Voir détails</button></div>
@@ -508,8 +555,25 @@ export default function Portfolio() {
           </div>
         </section>
 
+        <section id="experience" className="section">
+          <div className="section-heading reveal compact"><p className="eyebrow">04 / EXPÉRIENCE PROFESSIONNELLE</p><h2>Stages réalisés.</h2></div>
+          <div className="timeline">
+            {experiences.map((experience) => (
+              <article key={experience.period} className="timeline-item reveal">
+                <time>{experience.period}</time>
+                <div className="glass">
+                  <h3>{experience.title}</h3>
+                  <p>{experience.company}</p>
+                  <ul className="experience-points">{experience.points.map((point) => <li key={point}>{point}</li>)}</ul>
+                  <div className="tags">{experience.stack.map((tech) => <span key={tech}>{tech}</span>)}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
         <section id="education" className="section">
-          <div className="section-heading reveal compact"><p className="eyebrow">04 / FORMATIONS</p><h2>Parcours académique.</h2></div>
+          <div className="section-heading reveal compact"><p className="eyebrow">05 / FORMATION</p><h2>Parcours académique.</h2></div>
           <div className="timeline">
             {formations.map((formation) => (
               <article key={formation.period} className="timeline-item reveal">
@@ -520,35 +584,36 @@ export default function Portfolio() {
         </section>
 
         <section id="certifications" className="section">
-          <div className="section-heading reveal compact"><p className="eyebrow">05 / CERTIFICATIONS</p><h2>Apprentissage certifié.</h2></div>
+          <div className="section-heading reveal compact"><p className="eyebrow">06 / CERTIFICATIONS</p><h2>Apprentissage certifié.</h2></div>
           <div className="cert-grid">
             {certifications.map((certification) => (
               <article key={certification.title} className="cert-card glass reveal">
-                <time>{certification.date}</time><h3>{certification.title}</h3><p>{certification.issuer}</p>
+                <time>{certification.date}</time><h3>{certification.title}</h3><p>{certification.issuer}</p>{certification.id && <small>ID : {certification.id}</small>}
               </article>
             ))}
           </div>
         </section>
 
         <section id="personal" className="section">
-          <div className="section-heading reveal compact"><p className="eyebrow">06 / PROFIL PERSONNEL</p><h2>Langues, qualités et intérêts.</h2></div>
+          <div className="section-heading reveal compact"><p className="eyebrow">07 / PROFIL PERSONNEL</p><h2>Langues, qualités et recherche.</h2></div>
           <div className="personal-grid">
-            <article className="glass reveal"><span className="label">LANGUES</span><div className="large-badges"><span>Arabe</span><span>Français</span><span>Anglais</span></div></article>
-            <article className="glass reveal"><span className="label">QUALITÉS HUMAINES</span><div className="large-badges"><span>Travail d&apos;équipe</span><span>Adaptabilité</span><span>Rigueur</span><span>Autonomie</span><span>Persévérance</span></div></article>
-            <article className="glass reveal"><span className="label">CENTRES D&apos;INTÉRÊT</span><div className="interest-list"><strong>Bénévolat</strong><strong>Sports collectifs</strong></div></article>
+            <article className="glass reveal"><span className="label">LANGUES</span><div className="interest-list">{languages.map((language) => <strong key={language.name}>{language.name} <small>- {language.level}</small></strong>)}</div></article>
+            <article className="glass reveal"><span className="label">QUALITÉS HUMAINES</span><div className="large-badges"><span>Travail en équipe</span><span>Autonomie</span><span>Rigueur</span><span>Résolution de problèmes</span><span>Esprit d&apos;initiative</span></div></article>
+            <article className="glass reveal"><span className="label">RECHERCHE</span><div className="interest-list"><strong>Stage PFE - 6 mois</strong><strong>Développement full-stack</strong><strong>Mobilité nationale</strong></div></article>
           </div>
         </section>
 
         <section id="contact" className="section contact">
           <div className="section-heading reveal">
-            <p className="eyebrow">07 / CONTACT</p><h2>Échangeons autour d&apos;une opportunité.</h2>
-            <p>Disponible pour discuter de projets, stages et opportunités dans l&apos;informatique et les réseaux.</p>
+            <p className="eyebrow">08 / CONTACT</p><h2>Échangeons autour d&apos;une opportunité.</h2>
+            <p>À la recherche d&apos;un stage PFE de 6 mois en développement full-stack. Échangeons autour d&apos;une opportunité.</p>
             <div className="contact-list">
               <a href="tel:+212682444921"><small>Téléphone</small>+212 6 82 44 49 21</a>
               <a href="mailto:elghazoui.md@gmail.com"><small>Email</small>elghazoui.md@gmail.com</a>
-              <span><small>Adresse</small>1 Rue Mohammadia Appt 20, 5 Etg, Hassan Rt, 10000 Rabat, Maroc</span>
+              <span><small>Localisation</small>Rabat, Maroc | Mobilité nationale</span>
               <a href="https://www.linkedin.com/in/mohamed-el-ghazoui" target="_blank" rel="noreferrer"><small>LinkedIn</small>mohamed-el-ghazoui</a>
               <a href="https://github.com/Med-EL-GHAZOUI" target="_blank" rel="noreferrer"><small>GitHub</small>Med-EL-GHAZOUI</a>
+              <a href="https://elghzouimd.vercel.app" target="_blank" rel="noreferrer"><small>Portfolio</small>elghzouimd.vercel.app</a>
             </div>
           </div>
           <ContactForm />
@@ -565,7 +630,7 @@ export default function Portfolio() {
         <div className="project-modal-overlay" role="presentation" onMouseDown={() => setActiveProject(null)}>
           <section className="modal glass" role="dialog" aria-modal="true" aria-labelledby="modal-title" onMouseDown={(event: MouseEvent) => event.stopPropagation()}>
             <button className="modal-close" aria-label="Fermer" onClick={() => setActiveProject(null)}>x</button>
-            <p className="eyebrow">PROJET RÉALISÉ</p><h2 id="modal-title">{activeProject.title}</h2><p>{activeProject.detail}</p>
+            <p className="eyebrow">PROJET / STAGE</p><h2 id="modal-title">{activeProject.title}</h2><p>{activeProject.detail}</p>
             <div className="tags">{activeProject.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
           </section>
         </div>

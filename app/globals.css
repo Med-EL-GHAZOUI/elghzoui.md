@@ -1,139 +1,65 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "../styles.css";
 
-:root {
-  color-scheme: dark;
-  --bg: #05070d;
-  --surface: #0a1020;
-  --surface-2: #0e1628;
-  --border: rgba(148, 163, 184, 0.14);
-  --border-strong: rgba(148, 163, 184, 0.28);
-  --text: #e9edf5;
-  --muted: #98a4b8;
-  --cyan: #22d3ee;
-  --violet: #8b7cf6;
-  --radius: 16px;
+.contact-status {
+  grid-column: 1 / -1;
+  min-height: 22px;
+  font-size: 13px;
 }
 
-html {
-  scroll-behavior: smooth;
-  background: var(--bg);
+.contact-status[data-state="success"] {
+  color: var(--green);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
+.contact-status[data-state="error"] {
+  color: #ff8297;
 }
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-body), system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  display: grid;
+  place-items: center;
+  padding: 19px;
+  background: rgba(2, 4, 12, 0.7);
+  backdrop-filter: blur(7px);
 }
 
-::selection {
-  background: rgba(34, 211, 238, 0.28);
-  color: #fff;
+.project-modal-overlay .modal {
+  display: block;
+  margin: 0;
+  background: var(--surface-strong);
 }
 
-section[id] {
-  scroll-margin-top: 4.5rem;
+.palette-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 210;
+  background: rgba(2, 4, 12, 0.7);
+  backdrop-filter: blur(7px);
 }
 
-:focus-visible {
-  outline: 2px solid var(--cyan);
-  outline-offset: 3px;
-  border-radius: 6px;
+.palette-overlay .palette {
+  display: block;
+  background: var(--surface-strong);
 }
 
-@layer components {
-  .container-page {
-    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
-  }
-
-  .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.18em] text-cyan;
-  }
-
-  .card {
-    @apply rounded-card border border-line bg-ink-800/60;
-  }
-
-  .tag {
-    @apply inline-flex items-center rounded-md border border-line bg-white/[0.03] px-2.5 py-1 font-mono text-xs text-paper/80;
-  }
+.experience-points {
+  margin: 14px 0;
+  padding-left: 18px;
+  color: var(--muted, inherit);
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* Fine technical grid, masked so it fades toward the edges. */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
-  background-size: 56px 56px;
-  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 100%);
+.interest-list strong small {
+  font-weight: 400;
+  opacity: 0.7;
 }
 
-.text-gradient {
-  background: linear-gradient(100deg, #e9edf5 20%, #67e8f9 70%, #a79bf9 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -4rem;
-  z-index: 100;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  background: var(--cyan);
-  color: #04060b;
-  font-weight: 600;
-  transition: top 0.2s;
-}
-
-.skip-link:focus {
-  top: 1rem;
-}
-
-.project-dialog[open] {
-  animation: dialog-in 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes dialog-in {
-  from {
-    opacity: 0;
-    transform: translateY(12px) scale(0.98);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .project-dialog[open] {
-    animation: none;
-  }
-}
-
-.hero-in {
-  animation: hero-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: calc(var(--i, 0) * 90ms + 60ms);
-}
-
-@keyframes hero-in {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-in {
-    animation: none;
-  }
+.cert-card small {
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  opacity: 0.6;
 }
