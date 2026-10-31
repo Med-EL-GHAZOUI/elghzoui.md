@@ -1,35 +1,35 @@
 {
   "name": "mohamed-el-ghazoui-portfolio",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "@react-three/fiber": "9.1.2",
-    "framer-motion": "11.18.2",
-    "lucide-react": "^0.460.0",
-    "next": "15.3.9",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "three": "^0.169.0"
+    "@tsparticles/engine": "^4.4.0",
+    "@tsparticles/react": "^4.4.0",
+    "framer-motion": "^14.7.1",
+    "next": "16.4.3",
+    "react": "19.3.1",
+    "react-countup": "^6.4.2",
+    "react-dom": "19.3.1",
+    "react-hot-toast": "^2.6.1",
+    "react-icons": "^5.7.0",
+    "swiper": "^14.3.0",
+    "tsparticles": "^4.4.0"
   },
   "devDependencies": {
-    "@types/node": "^22.15.0",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@types/three": "^0.169.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "^15.3.9",
-    "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.17",
-    "typescript": "^5.8.0"
-  },
-  "optionalDependencies": {
-    "@next/swc-win32-x64-msvc": "15.3.5"
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "16.4.3",
+    "postcss": "^8.5.30",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
   }
 }
