@@ -1,136 +1,97 @@
-# Portfolio - Mohamed El-Ghazoui
+# Mohamed EL-GHAZOUI — Portfolio
 
-Portfolio personnel moderne et interactif de **Mohamed El-Ghazoui**, étudiant
-ingénieur en Informatique et Réseaux à l'EMSI Rabat.
+Interactive 3D developer portfolio for Mohamed EL-GHAZOUI, Computer Engineering student at EMSI (Rabat), seeking a six-month PFE internship starting February 2027.
 
-Le site présente mon profil, mon parcours académique, mes compétences
-techniques, mes certifications, mes projets réalisés et mes coordonnées dans
-une interface futuriste, responsive et immersive.
+Visual identity: **Premium Digital Engineer** — dark navy, off-white type, electric cyan and subtle violet accents, fine grid details, and one purposeful 3D hero scene.
 
-## Aperçu
+## Stack
 
-- Hero section avec portrait personnel et téléchargement du CV
-- Présentation du profil et du parcours EMSI
-- Compétences classées par catégories techniques
-- Projets filtrables avec recherche et détails en fenêtre modale
-- Timeline des formations et cartes de certifications
-- Langues, qualités humaines et centres d'intérêt
-- Formulaire de contact fonctionnel avec Web3Forms
-- Thèmes visuels, palette de commandes et terminal interactif
-- Design responsive adapté aux écrans mobiles et desktop
+| Area | Choice |
+| --- | --- |
+| Framework | Next.js 15 (App Router), React 19, TypeScript (strict, `noUncheckedIndexedAccess`) |
+| Styling | Tailwind CSS 3 with design tokens (colors, fonts, radii) in `tailwind.config.ts` and CSS variables |
+| 3D | three.js through React Three Fiber v9 (raw primitives, no extra helper library) |
+| Motion | Framer Motion for scroll reveals, nav indicator and scroll progress; CSS keyframes for the hero entrance |
+| Icons | Lucide React |
 
-## Technologies
+React 19 is required: Next 15's App Router bundles React 19 internally, and React Three Fiber v8 (React 18) crashes against it.
+GSAP and Drei were intentionally **not** added: nothing here needs a GSAP timeline, and the scene uses no Drei helpers.
 
-- [Next.js](https://nextjs.org/) 15 avec App Router
-- [React](https://react.dev/) 18
-- [TypeScript](https://www.typescriptlang.org/)
-- CSS personnalisé pour le design, les animations et le responsive
-- [Web3Forms](https://web3forms.com/) pour la réception des messages de contact
+## Setup
 
-## Installation
-
-### Prérequis
-
-- Node.js 18.18 ou version supérieure
-- npm
-
-### Lancer le projet localement
+Requires Node.js 18.18+ (tested on Node 22).
 
 ```bash
-git clone <url-du-depot>
-cd "Mon projet"
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
 ```
 
-Ouvrir ensuite [http://localhost:3000](http://localhost:3000) dans le navigateur.
-
-Pour utiliser le port `4173`, comme dans la version locale de démonstration :
+### Commands
 
 ```bash
-npm run dev -- -H 127.0.0.1 -p 4173
+npm run dev        # development server
+npm run lint       # ESLint (next/core-web-vitals + next/typescript)
+npx tsc --noEmit   # strict type check
+npm run build      # production build
+npm run start      # serve the production build
 ```
 
-Puis ouvrir [http://127.0.0.1:4173](http://127.0.0.1:4173).
+### Environment variables
 
-## Configuration du formulaire de contact
+Copy `.env.example` to `.env.local`.
 
-Le formulaire utilise Web3Forms pour envoyer les messages.
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` | Enables the contact form (delivered via [Web3Forms](https://web3forms.com)). If empty, the form is hidden and only the `mailto:` contact remains. The key is public by design. |
+| `NEXT_PUBLIC_SITE_URL` | Production origin (e.g. `https://example.com`). Enables canonical URL, `metadataBase`, sitemap entries and Open Graph image. Leave empty until the domain is confirmed. |
 
-1. Créer un fichier `.env.local` à la racine du projet.
-2. Ajouter la clé d'accès Web3Forms :
+## Deployment
 
-```env
-NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY=your_web3forms_access_key
-```
+The site is fully static. On Vercel: import the repository, add the two environment variables above, deploy. Any Node host works with `npm run build && npm run start`.
+After deploying, set `NEXT_PUBLIC_SITE_URL` to the final domain and redeploy so the canonical URL, sitemap and social preview image are generated.
 
-Un modèle est disponible dans `.env.example`.
-
-Le fichier `.env.local` est ignoré par Git afin d'éviter de publier la clé de
-configuration dans le dépôt.
-
-## Commandes disponibles
-
-```bash
-npm run dev
-```
-
-Démarre le serveur de développement.
-
-```bash
-npm run build
-```
-
-Génère la version optimisée de production.
-
-```bash
-npm run start
-```
-
-Démarre l'application construite en mode production.
-
-```bash
-npm run lint
-```
-
-Lance la vérification ESLint configurée par Next.js.
-
-## Structure du projet
+## Project structure
 
 ```text
-app/
-  globals.css          Styles importés par l'application Next.js
-  layout.tsx           Layout racine et métadonnées SEO
-  page.tsx             Page principale et données structurées
+app/                    layout, page, globals.css, sitemap.ts, robots.ts, icon.svg
 components/
-  ContactForm.tsx      Formulaire de contact et envoi Web3Forms
-  Portfolio.tsx        Interface principale et interactions
-public/assets/
-  CV-EL-GHAZOUI-Mohamed.pdf
-  mohamed-el-ghazoui.jpeg
-.env.example           Exemple de variable d'environnement
-styles.css             Direction visuelle et animations du portfolio
+  layout/               Navbar, Footer, ScrollProgress, BackToTop
+  sections/             Hero, About, Experience, Projects, Skills, Education, Contact, ContactForm
+  projects/             ProjectVisual (SVG artwork), ProjectModal (native <dialog>)
+  three/                HeroScene (R3F), HeroVisual (lazy loader + fallback), StaticHeroArt
+  ui/                   Button, Reveal, SectionHeading
+data/                   profile, experience, projects, skills, education  <- edit content here
+hooks/                  useActiveSection, useSceneCapability
+types/                  shared types
+lib/                    utilities
+public/assets/          CV PDF and portrait
+public/og-image.png     static social preview (1200x630)
 ```
 
-## Sections du portfolio
+All copy lives in `data/`, separate from components, so a French version can be added later by swapping or localising those modules.
 
-- Accueil
-- A propos
-- Competences
-- Projets
-- Formations
-- Certifications
-- Profil personnel
-- Contact
+## 3D, performance and accessibility notes
 
-## Contact
+- The 3D scene (core, connected nodes, particles, pointer parallax) is loaded with `next/dynamic` (`ssr: false`) only when WebGL is available and motion is allowed. three.js is not in the initial bundle.
+- Fallbacks: reduced-motion users, devices without WebGL, and render errors all keep the static SVG illustration. The server render and first client render are identical, so there are no hydration mismatches.
+- Mobile (<768px) uses a lighter scene: fewer nodes, no particles, no pointer parallax, lower pixel ratio.
+- Rendering pauses while the hero is off-screen. The canvas never captures pointer events.
+- `MotionConfig reducedMotion="user"` plus CSS media queries disable motion for reduced-motion users.
+- Skip link, visible focus rings, `aria-current` on navigation, mobile menu closes with Escape, native `<dialog>` for project details (focus trap, Escape, focus return), `aria-live` form status.
+- Skills are tagged by evidence (Internship / Project / Certified / Knowledge). There are no percentage bars.
 
-- Email : [elghazoui.md@gmail.com](mailto:elghazoui.md@gmail.com)
-- LinkedIn : [mohamed-el-ghazoui](https://www.linkedin.com/in/mohamed-el-ghazoui)
-- GitHub : [Med-EL-GHAZOUI](https://github.com/Med-EL-GHAZOUI)
+## Content status — please confirm
 
-## Auteur
+- **CV PDF is outdated.** `public/assets/CV-EL-GHAZOUI-Mohamed.pdf` still describes Mohamed as a second-year student with no internships and no Java SE 17 certification. The download works, but replace the file (same name) with the current CV before sharing the site.
+- **No project repositories or live demos are linked.** The public GitHub account lists `PlantCare-AI`, `StudyHub-AI` and a portfolio repo, but none of the four featured projects. Add `repoUrl` / `demoUrl` in `data/projects.ts` only when genuine links exist.
+- **Project "technical focus" and "functionality" lists** only restate what the brief and CV state. Add further implementation detail only after confirming it.
+- **Certification verification links** (Oracle, Google, IBM) are not included; add `verifyUrl` in `data/education.ts` if you have real ones.
+- **Spring Boot / JPA / Hibernate** are shown as technical knowledge, not as internship or project experience, because none was listed in the supplied experience.
+- Contact details exposed on the site are limited to email, LinkedIn, GitHub and city. The phone number and street address in the old site's structured data were removed.
 
-**Mohamed El-Ghazoui**  
-Etudiant ingenieur en Informatique et Reseaux  
-EMSI Rabat, Maroc
+## Files
+
+Created: `data/*`, `types/index.ts`, `lib/utils.ts`, `hooks/*`, `components/{layout,sections,projects,three,ui}/*`, `components/providers.tsx`, `app/{sitemap.ts,robots.ts,icon.svg}`, `public/og-image.png`, `tailwind.config.ts`, `postcss.config.mjs`, `.eslintrc.json`, `.claude/launch.json`.
+Rewritten: `app/layout.tsx`, `app/page.tsx`, `app/globals.css`, `README.md`, `tsconfig.json`, `next.config.mjs`, `.env.example`, `package.json`.
+
+Legacy files from the previous French static prototype are still present but unused (`components/Portfolio.tsx` is excluded from type-check and lint): `index.html`, `app.js`, `styles.css`, `components/Portfolio.tsx`, `components/ContactForm.tsx`, and the root `assets/` folder (a duplicate of `public/assets/`). They can be deleted safely.
